@@ -1,11 +1,17 @@
 import './App.css';
-import Introduction from "./pages/Introduction";
 import {Route} from "react-router-dom";
+import NavigationComp from "./components/navigation/Navigation.comp";
+import AboutMe from "./pages/AboutMe";
 
 function App() {
     return (
-        <div>
-            <Route exact path="/" component={Introduction} />
+        <div id="app">
+            <section>
+                <Route component={AboutMe} />
+            </section>
+            <nav>
+                <NavigationComp />
+            </nav>
         </div>
     )
 }

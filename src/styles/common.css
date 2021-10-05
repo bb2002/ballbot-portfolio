@@ -1,0 +1,12 @@
+.small-divider {
+    width: 100px;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.big-divider {
+    width: 100%;
+    height: 1px;
+    box-sizing: border-box;
+}
