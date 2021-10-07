@@ -6,3 +6,10 @@
     font-size: 32pt;
     color: #2C3E50;
 }
+
+.page-title > span {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 400;
+    font-size: 16pt;
+    margin-left: 16px;
+}

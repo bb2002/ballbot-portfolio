@@ -1,9 +1,9 @@
 import React from 'react';
 import "../styles/PageTitle.css"
 
-const PageTitleComp = ({ text }) => {
+const PageTitleComp = ({ text, subtext }) => {
     return (
-        <h1 className="page-title">{text}</h1>
+        <h1 className="page-title">{text} <span>{subtext ? subtext : ""}</span></h1>
     );
 };
 

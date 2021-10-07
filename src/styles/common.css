@@ -10,3 +10,9 @@
     height: 1px;
     box-sizing: border-box;
 }
+
+.big-divider-vertical {
+    height: 100%;
+    width: 1px;
+    box-sizing: border-box;
+}
