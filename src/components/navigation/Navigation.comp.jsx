@@ -3,7 +3,7 @@ import "../../styles/navigation/Navigation.css"
 import "../../styles/common.css"
 import NAVIGATION from "../../config/Navigation.conf";
 import { Link } from "react-router-dom"
-import {useHistory, useLocation} from "react-router";
+import {useLocation} from "react-router";
 
 const NavigationComp = () => {
     const location = useLocation()

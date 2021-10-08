@@ -1,6 +1,3 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore/lite';
-
 const firebaseConfig = {
     apiKey: "AIzaSyA-zTpev096jAsDgB4T_WZT7coSkqlVrhE",
     authDomain: "ballbotportfolio.firebaseapp.com",
@@ -12,6 +9,4 @@ const firebaseConfig = {
     measurementId: "G-4PNGSWVQFB"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-export default db
+export default firebaseConfig
