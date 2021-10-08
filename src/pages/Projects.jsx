@@ -2,12 +2,17 @@ import React, {useEffect} from 'react';
 import PageTitleComp from "../components/PageTitle.comp";
 import "../styles/pages/Project.css"
 import SubTitleComp from "../components/SubTitle.comp";
-import {Button} from "antd";
+import {Button} from "antd"
+import db from "../config/Firebase.config";
+import { collection, getDocs } from 'firebase/firestore/lite';
 
 const Projects = ({ match }) => {
-
     useEffect(() => {
-
+        const webProjectsCollection = collection(db, "webprojects")
+        getDocs(webProjectsCollection).then((snapshot) => {
+            const projectList = snapshot.docs.map(doc => doc.data())
+            console.log(projectList)
+        })
     }, [match.params])
 
     return (
@@ -46,14 +51,21 @@ const Projects = ({ match }) => {
                         국가 및 법률이 정한 단체의 회계검사와 행정기관 및 공무원의 직무에 관한 감찰을 하기 위하여 대통령 소속하에 감사원을 둔다.
                     </p>
                 </div>
-                <div style={{ border: "0.1px solid #dddddd", marginLeft: 32, marginRight: 32 }} />
+                <div style={{ marginLeft: 32, marginRight: 32 }} />
                 <div>
-                    <SubTitleComp text="Period" />
-                    <p>2021. 05 ~ 2021. 11</p>
+                    <div>
+                        <SubTitleComp text="Period" />
+                        <p>2021. 05 ~ 2021. 11</p>
+                    </div>
+                    <div>
+                        <SubTitleComp text="Link" />
+                        <Button type="link">서비스 홈페이지</Button>
+                        <Button type="link">Github</Button>
+                    </div>
+                    <div>
+                        <SubTitleComp text="Contribute" />
 
-                    <SubTitleComp text="Link" />
-                    <Button type="link">서비스 홈페이지</Button>
-                    <Button type="link">Github</Button>
+                    </div>
                 </div>
             </div>
         </div>
