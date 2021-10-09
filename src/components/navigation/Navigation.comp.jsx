@@ -1,48 +1,60 @@
 import React, {useEffect} from 'react';
 import "../../styles/navigation/Navigation.css"
 import "../../styles/common.css"
-import {useLocation} from "react-router";
+import {useHistory, useLocation} from "react-router";
 import {Menu} from "antd";
-import {MailOutlined, PhoneOutlined, ProjectOutlined, UserOutlined} from "@ant-design/icons";
+import {PhoneOutlined, ProjectOutlined, UserOutlined} from "@ant-design/icons";
+import { Link } from "react-router-dom"
 
 const { SubMenu } = Menu;
 
 const NavigationComp = () => {
     const location = useLocation()
-    const category = location.pathname.split("/")[1] ? location.pathname.split("/")[1] : ""
+    const history = useHistory()
+    const category =    location.pathname.split("/")[1] ? location.pathname.split("/")[1] : "profile"
+    const name =        location.pathname.split("/")[2] ? location.pathname.split("/")[2] : ""
 
     useEffect(() => {
 
     }, [location.path])
 
+    const onMenuClicked = (keypath) => {
+        history.push("/" + keypath.reverse().join("/"))
+    }
+
     return (
-        <Menu className="navigation" mode="inline">
+        <Menu className="navigation" mode="inline" selectedKeys={[name, category]}>
             <div id="logo">
-                <h1>BALLBOT</h1>
-                <h1>PORTFOLIO</h1>
+                <Link to="/">
+                    <h1>BALLBOT</h1>
+                    <h1>PORTFOLIO</h1>
+                </Link>
             </div>
 
-            <Menu.Item key="profile" icon={<UserOutlined />}>
+            <Menu.Item key="profile" icon={<UserOutlined />} onClick={(value) => onMenuClicked(value.keyPath)}>
                 About Me
             </Menu.Item>
             <SubMenu key="webprojects" icon={<ProjectOutlined />} title="Web Projects">
-                <Menu.Item key="KNUCodingPlatform">KNU 코딩 플랫폼</Menu.Item>
-                <Menu.Item key="TweetGallery">트윗 갤러리</Menu.Item>
-                <Menu.Item key="Portfolio">포트폴리오</Menu.Item>
+                {
+                    [["KNUCodingPlatform", "KNU 코딩 플랫폼"], ["TweetGallery", "트윗 갤러리"], ["Portfolio", "포트폴리오"]].map(data =>
+                        <Menu.Item key={data[0]} onClick={(value) => onMenuClicked(value.keyPath)}>{data[1]}</Menu.Item>
+                    )
+                }
             </SubMenu>
             <SubMenu key="appprojects" icon={<ProjectOutlined />} title="App Projects">
-                <Menu.Item key="Key365">자동차키 365</Menu.Item>
-                <Menu.Item key="Firework">화재 경보 시스템</Menu.Item>
-                <Menu.Item key="luview">러뷰</Menu.Item>
-                <Menu.Item key="ballbotweather">볼봇날씨</Menu.Item>
+                {
+                    [["Key365", "자동차키 365"], ["Firework", "화재 경보 시스템"], ["ballbotweather", "볼봇 날씨"]].map(data =>
+                        <Menu.Item key={data[0]} onClick={(value) => onMenuClicked(value.keyPath)}>{data[1]}</Menu.Item>
+                    )
+                }
             </SubMenu>
-            <Menu.Item key="profile" icon={<PhoneOutlined />}>
+            <Menu.Item key="contact" icon={<PhoneOutlined />} onClick={(value) => onMenuClicked(value.keyPath)}>
                 Contact Me
             </Menu.Item>
 
             <footer>
-                <p>(c) 2015-2021 Saint Software</p>
-                <p>Created By Ant Design</p>
+                <p>(c) 2015-2021 Ballbot</p>
+                <p>Designed by <a href="https://ant.design">Ant Design</a></p>
             </footer>
         </Menu>
     );

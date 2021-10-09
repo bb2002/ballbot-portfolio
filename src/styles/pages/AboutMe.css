@@ -1,10 +1,99 @@
-/*#aboutme-container {
+#aboutme-container {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
 }
 
+#aboutme-container #profile {
+    display: flex;
+
+}
+
+#profile > div:first-child {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile > div:first-child > p {
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    margin-top: 16px
+}
+
+#profile > div:last-child {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 32px;
+}
+
+#profile > div:last-child > table {
+    max-width: 270px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12pt;
+    color: #2C3E50;
+}
+
+#extra-url {
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+}
+
+#aboutme-container2 {
+    display: flex;
+    flex-direction: row;
+}
+
+#aboutme-container2 > div:first-child {
+    flex: 1;
+}
+
+#aboutme-container2 > div:last-child {
+    flex: 2;
+}
+
+#skills table h3 {
+    font-weight: 500;
+    font-size: 18pt;
+    font-family: 'Raleway', sans-serif;
+    color: #2C3E50;
+    text-align: right;
+}
+
+#skills table .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px
+}
+
+#skills table p {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: #2C3E50;
+    font-size: 16pt;
+    margin: 8px 0 0 0;
+}
+
+#skills table {
+    width: 800px;
+}
+
+#skills table img {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+}
+
+
+/*
 #aboutme-container > div {
     display: flex;
     flex-direction: row;
@@ -34,10 +123,7 @@
     height: 150px;
 }
 
-#profile > table {
-    color: #2C3E50;
-    font-family: 'Noto Sans KR', sans-serif;
-}
+
 
 #profile > #extra-url {
     display: flex;
@@ -89,42 +175,5 @@
     padding: 0;
 }
 
-#skills > #skill-container {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    align-items: center;
-}
 
-#skills table h3 {
-    font-weight: 500;
-    font-size: 18pt;
-    font-family: 'Raleway', sans-serif;
-    color: #2C3E50;
-    text-align: right;
-}
-
-#skills table .skill-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px
-}
-
-#skills table p {
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    color: #2C3E50;
-    font-size: 16pt;
-    margin: 8px 0 0 0;
-}
-
-#skills table {
-    width: 800px;
-}
-
-#skills table img {
-    width: 24px;
-    height: 24px;
-    margin-right: 4px;
 }*/

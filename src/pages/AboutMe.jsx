@@ -3,8 +3,7 @@ import PageTitleComp from "../components/PageTitle.comp";
 import "../styles/pages/AboutMe.css"
 import "../styles/common.css"
 import ProfileImage from "../assets/profile.png"
-import SubTitleComp from "../components/SubTitle.comp";
-import {Progress, Timeline} from 'antd';
+import {Avatar, Card, Progress, Timeline} from 'antd';
 import ReactIcon from "../assets/react_icon.svg"
 import NestJSIcon from "../assets/nestjs_icon.svg"
 import CentOSIcon from "../assets/centos_icon.svg"
@@ -14,61 +13,64 @@ import AWSIcon from "../assets/aws_icon.svg"
 const AboutMe = () => {
     return (
         <div id="aboutme-container">
-            <PageTitleComp text="About Me"/>
+            <PageTitleComp text="About Me" />
+            <div className="card-margin" />
+            <br />
 
-            <div>
+            <Card title="PROFILE">
                 <div id="profile">
-                    <img src={ProfileImage} id="profile-img" alt="Profile"/>
-                    <p>김수빈</p>
-                    <table>
-                        <tr>
-                            <td width={120}><b>생년월일</b></td>
-                            <td width={120}>2002. 06. 06</td>
-                        </tr>
-                        <tr>
-                            <td><b>이메일</b></td>
-                            <td>5252bb@daum.net</td>
-                        </tr>
-                    </table>
-
-                    <div id="extra-url">
-                        <a href="https://github.com/bb2002" target="_blank" rel="noreferrer">
-                            <img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=GitHub&logoColor=white" alt="Github"/>
-                        </a>
-                        <div style={{ width: 16 }} />
-                        <a href="https://ballbot.tistory.com" target="_blank" rel="noreferrer">
-                            <img src="https://img.shields.io/badge/Tistory-FF5722?style=flat-square&logo=Blogger&logoColor=white" alt="Tistory"/>
-                        </a>
+                    <div>
+                        <Avatar src={ProfileImage} id="profile-img" alt="Profile" size={96}/>
+                        <p>김수빈</p>
                     </div>
-
+                    <div>
+                        <table>
+                            <tr>
+                                <td width={120}><b>생년월일</b></td>
+                                <td width={120}>2002. 06. 06</td>
+                            </tr>
+                            <tr>
+                                <td><b>이메일</b></td>
+                                <td>5252bb@daum.net</td>
+                            </tr>
+                        </table>
+                        <div id="extra-url">
+                            <a href="https://github.com/bb2002" target="_blank" rel="noreferrer">
+                                <img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=GitHub&logoColor=white" alt="Github"/>
+                            </a>
+                            <div style={{ width: 8 }} />
+                            <a href="https://ballbot.tistory.com" target="_blank" rel="noreferrer">
+                                <img src="https://img.shields.io/badge/Tistory-FF5722?style=flat-square&logo=Blogger&logoColor=white" alt="Tistory"/>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div id="education">
-                        <SubTitleComp text="Education"/>
-                        <br />
-
-                        <Timeline>
-                            <Timeline.Item color="gray">
-                                <p className="timeline-title">선린인터넷고등학교 입학</p>
-                                <p className="timeline-date">2018. 03</p>
-                            </Timeline.Item>
-                            <Timeline.Item color="gray">
-                                <p className="timeline-title">선린인터넷고등학교 졸업</p>
-                                <p className="timeline-date">2021. 02</p>
-                            </Timeline.Item>
-                            <Timeline.Item color="gray">
-                                <p className="timeline-title">강원대학교 컴퓨터공학과 입학</p>
-                                <p className="timeline-date">2021. 03</p>
-                            </Timeline.Item>
-                            <Timeline.Item color="green">
-                                <p className="timeline-title">강원대학교 컴퓨터공학과 재학</p>
-                                <p className="timeline-date">2021. 03 ~</p>
-                            </Timeline.Item>
-                        </Timeline>
-                    </div>
-                    <div className="big-divider" style={{ backgroundColor: "#dddddd" }} />
+            </Card>
+            <div className="card-margin" />
+            <div id="aboutme-container2">
+                <Card title="EDUCATION">
+                    <Timeline>
+                        <Timeline.Item color="gray">
+                            <p className="timeline-title">선린인터넷고등학교 입학</p>
+                            <p className="timeline-date">2018. 03</p>
+                        </Timeline.Item>
+                        <Timeline.Item color="gray">
+                            <p className="timeline-title">선린인터넷고등학교 졸업</p>
+                            <p className="timeline-date">2021. 02</p>
+                        </Timeline.Item>
+                        <Timeline.Item color="gray">
+                            <p className="timeline-title">강원대학교 컴퓨터공학과 입학</p>
+                            <p className="timeline-date">2021. 03</p>
+                        </Timeline.Item>
+                        <Timeline.Item color="green">
+                            <p className="timeline-title">강원대학교 컴퓨터공학과 재학</p>
+                            <p className="timeline-date">2021. 03 ~</p>
+                        </Timeline.Item>
+                    </Timeline>
+                </Card>
+                <div className="card-margin" />
+                <Card title="SKILLS">
                     <div id="skills">
-                        <SubTitleComp text="Skills"/>
                         <table>
                             <tr>
                                 <td>
@@ -161,9 +163,8 @@ const AboutMe = () => {
                             </tr>
                         </table>
                     </div>
-                </div>
+                </Card>
             </div>
-
         </div>
     );
 };

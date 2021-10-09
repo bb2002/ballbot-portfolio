@@ -1,9 +1,13 @@
 import React from 'react';
 import "../styles/PageTitle.css"
+import {PageHeader} from "antd";
 
 const PageTitleComp = ({ text, subtext }) => {
     return (
-        <h1 className="page-title">{text} <span>{subtext ? subtext : ""}</span></h1>
+        <PageHeader
+            className="site-page-header"
+            title={text}
+            subTitle={subtext} />
     );
 };
 

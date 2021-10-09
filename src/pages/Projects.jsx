@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import PageTitleComp from "../components/PageTitle.comp";
 import "../styles/pages/Project.css"
-import SubTitleComp from "../components/SubTitle.comp";
-import {Spin} from "antd"
+import "../styles/common.css"
+import {Card, Spin} from "antd"
 import useFirestore from "../hooks/useFirestore"
+import ImageSlider from "../components/slider/ImageSlider";
 
 
 const Projects = ({ match }) => {
@@ -32,78 +33,54 @@ const Projects = ({ match }) => {
     if(currProject) {
         return (
             <div className="project-container">
-                <PageTitleComp text="Projects" subtext={currProject?.title}/>
+                {
+                    match.params.category === "webprojects" && (
+                        <PageTitleComp text="Web Projects" subtext={currProject?.title}/>
+                    )
+                }
 
-                <div className="image-container">
-                    <div>
-                        {
-                            currProject.images[0] && (
-                                <img src={currProject.images[0]} alt="Main" />
-                            )
-                        }
-                    </div>
+                {
+                    match.params.category === "appprojects" && (
+                        <PageTitleComp text="App Projects" subtext={currProject?.title}/>
+                    )
+                }
+                <div className="card-margin" />
+                <br />
 
-                    <div>
-                        <div>
-                            {
-                                currProject.images[1] && (
-                                    <img src={currProject.images[1]} alt="Sub 1"/>
-                                )
-                            }
-                        </div>
-                        <div>
-                            {
-                                currProject.images[2] && (
-                                    <img src={currProject.images[2]} alt="Sub 2"/>
-                                )
-                            }
-                        </div>
-                        <div>
-                            {
-                                currProject.images[3] && (
-                                    <img src={currProject.images[3]} alt="Sub 3"/>
-                                )
-                            }
-                        </div>
-                        <div>
-                            {
-                                currProject.images[4] && (
-                                    <img src={currProject.images[4]} alt="Sub 4"/>
-                                )
-                            }
-                        </div>
-                    </div>
-                </div>
+                <ImageSlider url={currProject.images} height={420}/>
+                <div className="card-margin" />
 
                 <div className="describe-container">
-                    <div>
-                        <SubTitleComp text="Introduction" />
-                        <br />
-                        <div dangerouslySetInnerHTML={{ __html: currProject.introduction }} />
-                    </div>
-                    <div style={{ marginLeft: 32, marginRight: 32 }} />
-                    <div>
-                        <div>
-                            <SubTitleComp text="Period" />
-                            <p>{currProject.period}</p>
+                    <Card title="INTRODUCTION">
+                        <div dangerouslySetInnerHTML={{ __html: currProject.introduction }}  />
+                    </Card>
+                    <div className="card-margin" />
+                    <Card title="INFORMATION">
+                        <div id="information-container">
+                            <div>
+                                <p><b>개발 기간</b></p>
+                                <p>{currProject.period}</p>
+                            </div>
+
+                            <div>
+                                <p><b>관련 링크</b></p>
+                                {
+                                    currProject.link.map(value =>
+                                        <>
+                                            <a type="link" href={value} target="_blank" rel="noreferrer">{value}</a>
+                                            <br />
+                                        </>)
+                                }
+                            </div>
+
+                            <div>
+                                <p><b>기여</b></p>
+                                {
+                                    currProject.contribute.map(value => <img src={value} alt={value} style={{ marginRight: 8 }}/>)
+                                }
+                            </div>
                         </div>
-                        <div>
-                            <SubTitleComp text="Link" />
-                            {
-                                currProject.link.map(value =>
-                                    <>
-                                        <a type="link" href={value}>{value}</a>
-                                        <br />
-                                    </>)
-                            }
-                        </div>
-                        <div>
-                            <SubTitleComp text="Contribute" />
-                            {
-                                currProject.contribute.map(value => <img src={value} alt={value} />)
-                            }
-                        </div>
-                    </div>
+                    </Card>
                 </div>
             </div>
         );

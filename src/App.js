@@ -5,6 +5,7 @@ import NavigationComp from "./components/navigation/Navigation.comp";
 import AboutMe from "./pages/AboutMe";
 import Projects from "./pages/Projects";
 import HttpError from "./pages/HttpError";
+import Placeholder from "./pages/Placeholder";
 
 function App() {
     return (
@@ -14,7 +15,8 @@ function App() {
             </nav>
             <section>
                 <Switch>
-                    <Route component={AboutMe} exact path="/" />
+                    <Route component={Placeholder} exact path="/" />
+                    <Route component={AboutMe} exact path="/profile" />
                     <Route component={Projects} exact path="/:category/:name" />
                     <Route component={HttpError} exact path="/*" />
                 </Switch>

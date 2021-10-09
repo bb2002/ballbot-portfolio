@@ -16,3 +16,7 @@
     width: 1px;
     box-sizing: border-box;
 }
+
+.card-margin {
+    padding: 8px;
+}
