@@ -1,41 +1,51 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import "../../styles/navigation/Navigation.css"
 import "../../styles/common.css"
-import NAVIGATION from "../../config/Navigation.conf";
-import { Link } from "react-router-dom"
 import {useLocation} from "react-router";
+import {Menu} from "antd";
+import {MailOutlined, PhoneOutlined, ProjectOutlined, UserOutlined} from "@ant-design/icons";
+
+const { SubMenu } = Menu;
 
 const NavigationComp = () => {
     const location = useLocation()
+    const category = location.pathname.split("/")[1] ? location.pathname.split("/")[1] : ""
 
-    const pageType = location.pathname.split("/")[1] ? location.pathname.split("/")[1] : ""
-    const contentType = location.pathname.split("/")[2] ? location.pathname.split("/")[2] : ""
-    const indexNavigation = NAVIGATION.filter(value => value.key === pageType)[0]
+    useEffect(() => {
 
-    if(indexNavigation && indexNavigation.child.filter(value => value.key.replace("/", "") === contentType).length !== 0) {
-        return (
-            <div className="navigation">
-                <h1>BALLBOT<br />PORTFOLIO</h1>
-                <div className="small-divider" style={{ marginBottom: 56, backgroundColor: "#747692" }}/>
+    }, [location.path])
 
-                <div className="navigation-tab">
-                    <h2>INDEX</h2>
-                    {
-                        NAVIGATION.map(value => <Link to={`/${value.key}${value.child[0].key}`}><h3 className={value.key === pageType ? 'selected' : ''}>{value.value}</h3></Link>)
-                    }
-                </div>
-
-                <div className="navigation-tab">
-                    <h2>{indexNavigation.value}</h2>
-                    {
-                        indexNavigation.child.map(value => <Link to={`/${pageType}${value.key}`}><h3 className={value.key === contentType ? 'selected' : ''}>{value.value}</h3></Link>)
-                    }
-                </div>
+    return (
+        <Menu className="navigation" mode="inline">
+            <div id="logo">
+                <h1>BALLBOT</h1>
+                <h1>PORTFOLIO</h1>
             </div>
-        );
-    } else {
-        return null
-    }
+
+            <Menu.Item key="profile" icon={<UserOutlined />}>
+                About Me
+            </Menu.Item>
+            <SubMenu key="webprojects" icon={<ProjectOutlined />} title="Web Projects">
+                <Menu.Item key="KNUCodingPlatform">KNU 코딩 플랫폼</Menu.Item>
+                <Menu.Item key="TweetGallery">트윗 갤러리</Menu.Item>
+                <Menu.Item key="Portfolio">포트폴리오</Menu.Item>
+            </SubMenu>
+            <SubMenu key="appprojects" icon={<ProjectOutlined />} title="App Projects">
+                <Menu.Item key="Key365">자동차키 365</Menu.Item>
+                <Menu.Item key="Firework">화재 경보 시스템</Menu.Item>
+                <Menu.Item key="luview">러뷰</Menu.Item>
+                <Menu.Item key="ballbotweather">볼봇날씨</Menu.Item>
+            </SubMenu>
+            <Menu.Item key="profile" icon={<PhoneOutlined />}>
+                Contact Me
+            </Menu.Item>
+
+            <footer>
+                <p>(c) 2015-2021 Saint Software</p>
+                <p>Created By Ant Design</p>
+            </footer>
+        </Menu>
+    );
 
 };
 

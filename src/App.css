@@ -11,6 +11,6 @@
 }
 
 #app > nav {
-    width: 440px;
+    height: 100%;
     box-sizing: border-box;
 }

@@ -9,6 +9,9 @@ import HttpError from "./pages/HttpError";
 function App() {
     return (
         <div id="app">
+            <nav>
+                <NavigationComp />
+            </nav>
             <section>
                 <Switch>
                     <Route component={AboutMe} exact path="/" />
@@ -17,9 +20,6 @@ function App() {
                 </Switch>
 
             </section>
-            <nav>
-                <NavigationComp />
-            </nav>
         </div>
     )
 }
