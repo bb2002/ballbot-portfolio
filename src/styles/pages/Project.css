@@ -1,3 +1,9 @@
+.project-container {
+    animation-name: fadein-project;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
 .describe-container {
     display: flex;
 }
@@ -8,18 +14,57 @@
 
 #information-container {
     display: flex;
-    flex-direction: row;
-}
-
-#information-container > div {
-    flex: 1;
-}
-
-#information-container > div > p {
-    flex: 1;
+    flex-direction: column;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-#information-container > div > p > b {
-    font-size: 12pt;
+#information-container > div:first-child {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
 }
+
+#information-container > div:first-child > div {
+    flex: 1;
+}
+
+#image-slider-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#image-slider-container > #intro-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+#intro-text {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#intro-card {
+    width: 100%;
+}
+
+#image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#image-container > img {
+    height: 500px;
+
+}
+
+@keyframes fadein-project {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+

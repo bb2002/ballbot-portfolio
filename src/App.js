@@ -9,6 +9,7 @@ import Placeholder from "./pages/Placeholder";
 import ContactMe from "./pages/ContactMe";
 
 function App() {
+
     return (
         <div id="app">
             <nav>
@@ -22,7 +23,6 @@ function App() {
                     <Route component={ContactMe} exact path="/contact" />
                     <Route component={HttpError} exact path="/*" />
                 </Switch>
-
             </section>
         </div>
     )

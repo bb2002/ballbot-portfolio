@@ -1,5 +1,4 @@
 import React from 'react';
-import PageTitleComp from "../components/PageTitle.comp";
 import "../styles/pages/AboutMe.css"
 import "../styles/common.css"
 import ProfileImage from "../assets/profile.png"
@@ -13,9 +12,7 @@ import AWSIcon from "../assets/aws_icon.svg"
 const AboutMe = () => {
     return (
         <div id="aboutme-container">
-            <PageTitleComp text="About Me" />
-            <div className="card-margin" />
-            <br />
+            <br /><br /><br /><br /><br />
 
             <Card title="PROFILE">
                 <div id="profile">
@@ -36,11 +33,11 @@ const AboutMe = () => {
                         </table>
                         <div id="extra-url">
                             <a href="https://github.com/bb2002" target="_blank" rel="noreferrer">
-                                <img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=GitHub&logoColor=white" alt="Github"/>
+                                <img width={115} src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=GitHub&logoColor=white" alt="Github"/>
                             </a>
                             <div style={{ width: 8 }} />
                             <a href="https://ballbot.tistory.com" target="_blank" rel="noreferrer">
-                                <img src="https://img.shields.io/badge/Tistory-FF5722?style=flat-square&logo=Blogger&logoColor=white" alt="Tistory"/>
+                                <img width={120} src="https://img.shields.io/badge/Tistory-FF5722?style=for-the-badge&logo=Blogger&logoColor=white" alt="Tistory"/>
                             </a>
                         </div>
                     </div>

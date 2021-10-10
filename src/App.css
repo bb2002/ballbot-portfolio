@@ -5,7 +5,7 @@
     height: 100vh;
 }
 
-#app > section {
+section {
     flex: 1;
     padding: 48px;
     overflow-y: auto;
