@@ -15,18 +15,27 @@ const Projects = ({ match }) => {
         if(match.params.category === "webprojects") {
             readProjects("webprojects")
         }
+
+        if(match.params.category === "appprojects") {
+            readProjects("appprojects")
+        }
     }, [match.params, readProjects])
 
     useEffect(() => {
-        if(match.params.category === "webprojects" && projects.webprojects) {
-            const arr = projects.webprojects.filter(value => value.name === match.params.name)
+        let arr = []
 
-            if(arr.length === 1) {
-                setCurrProject(arr[0])
-            } else {
-                // HTTP 404
-                setCurrProject(undefined)
-            }
+        if(match.params.category === "webprojects" && projects.webprojects) {
+            arr = projects.webprojects.filter(value => value.name === match.params.name)
+        } else if(match.params.category === "appprojects" && projects.appprojects) {
+            arr = projects.appprojects.filter(value => value.name === match.params.name)
+        }
+
+
+        if(arr.length === 1) {
+            setCurrProject(arr[0])
+        } else {
+            // HTTP 404
+            setCurrProject(undefined)
         }
     }, [projects, match.params, setCurrProject])
 

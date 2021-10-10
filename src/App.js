@@ -6,6 +6,7 @@ import AboutMe from "./pages/AboutMe";
 import Projects from "./pages/Projects";
 import HttpError from "./pages/HttpError";
 import Placeholder from "./pages/Placeholder";
+import ContactMe from "./pages/ContactMe";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route component={Placeholder} exact path="/" />
                     <Route component={AboutMe} exact path="/profile" />
                     <Route component={Projects} exact path="/:category/:name" />
+                    <Route component={ContactMe} exact path="/contact" />
                     <Route component={HttpError} exact path="/*" />
                 </Switch>
 
