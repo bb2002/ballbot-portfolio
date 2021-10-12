@@ -126,7 +126,7 @@ const Projects = ({ match }) => {
                         </div>
                         <br />
                         <div>
-                            <p><b>기여</b></p>
+                            <p><b>기술 스택</b></p>
                             {
                                 currProject && (
                                     currProject.contribute.map(value =>

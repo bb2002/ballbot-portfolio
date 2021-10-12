@@ -16,7 +16,7 @@ const Placeholder = () => {
     return (
         <div className="placeholder">
             <h1>Welcome to</h1>
-            <h1>BALLB<Avatar src={ProfileImage} size={96} />T</h1>
+            <h1>BALLB<Avatar src={ProfileImage} size={118} />T</h1>
             <h1>PORTFOLIO</h1>
 
             <Spin size="large" />

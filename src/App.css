@@ -7,8 +7,8 @@
 
 section {
     flex: 1;
-    padding: 48px;
     overflow-y: auto;
+    padding: 48px;
 }
 
 #app > nav {

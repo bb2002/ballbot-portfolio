@@ -71,7 +71,7 @@ const AboutMe = () => {
                         <table>
                             <tr>
                                 <td>
-                                    <h3>Progrmming</h3>
+                                    <h3>Programming</h3>
                                 </td>
                                 <td>
                                     <div className="skill-item">

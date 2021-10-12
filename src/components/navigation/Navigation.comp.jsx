@@ -3,7 +3,7 @@ import "../../styles/navigation/Navigation.css"
 import "../../styles/common.css"
 import {useHistory, useLocation} from "react-router";
 import {Menu} from "antd";
-import {PhoneOutlined, ProjectOutlined, UserOutlined} from "@ant-design/icons";
+import {AndroidOutlined, IeOutlined, PhoneOutlined, ProjectOutlined, UserOutlined} from "@ant-design/icons";
 import { Link } from "react-router-dom"
 
 const { SubMenu } = Menu;
@@ -34,14 +34,14 @@ const NavigationComp = () => {
             <Menu.Item key="profile" icon={<UserOutlined />} onClick={(value) => onMenuClicked(value.keyPath)}>
                 About Me
             </Menu.Item>
-            <SubMenu key="webprojects" icon={<ProjectOutlined />} title="Web Projects">
+            <SubMenu key="webprojects" icon={<IeOutlined />} title="Web Projects">
                 {
                     [["KNUCodingPlatform", "KNU 코딩 플랫폼"], ["TweetGallery", "트윗 갤러리"], ["Portfolio", "포트폴리오"]].map(data =>
                         <Menu.Item key={data[0]} onClick={(value) => onMenuClicked(value.keyPath)}>{data[1]}</Menu.Item>
                     )
                 }
             </SubMenu>
-            <SubMenu key="appprojects" icon={<ProjectOutlined />} title="App Projects">
+            <SubMenu key="appprojects" icon={<AndroidOutlined />} title="App Projects">
                 {
                     [["Key365", "자동차키 365"], ["Firework", "화재 경보 시스템"], ["ballbotweather", "볼봇 날씨"]].map(data =>
                         <Menu.Item key={data[0]} onClick={(value) => onMenuClicked(value.keyPath)}>{data[1]}</Menu.Item>
