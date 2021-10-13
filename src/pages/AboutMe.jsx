@@ -8,8 +8,11 @@ import NestJSIcon from "../assets/nestjs_icon.svg"
 import CentOSIcon from "../assets/centos_icon.svg"
 import DockerIcon from "../assets/docker_icon.svg"
 import AWSIcon from "../assets/aws_icon.svg"
+import {useWindowSize} from "../hooks/useWindowSize";
 
 const AboutMe = () => {
+    const { width } = useWindowSize()
+    
     return (
         <div id="aboutme-container">
             <br /><br /><br /><br /><br />
@@ -68,97 +71,152 @@ const AboutMe = () => {
                 <div className="card-margin" />
                 <Card title="SKILLS">
                     <div id="skills">
-                        <table>
-                            <tr>
-                                <td>
-                                    <h3>Programming</h3>
-                                </td>
-                                <td>
-                                    <div className="skill-item">
-                                        <Progress
-                                            type="circle"
-                                            strokeColor={{
-                                                '0%': '#108ee9',
-                                                '100%': '#87d068',
-                                            }}
-                                            percent={90}
-                                        />
-                                        <p><img src={ReactIcon} alt="React" />React</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="skill-item">
-                                        <Progress
-                                            type="circle"
-                                            strokeColor={{
-                                                '0%': '#108ee9',
-                                                '100%': '#87d068',
-                                            }}
-                                            percent={90}
-                                        />
-                                        <p style={{ fontSize: "14pt" }}><img src={ReactIcon} alt="React Native" />React Native</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="skill-item">
-                                        <Progress
-                                            type="circle"
-                                            strokeColor={{
-                                                '0%': '#108ee9',
-                                                '100%': '#87d068',
-                                            }}
-                                            percent={70}
-                                        />
-                                        <p><img src={NestJSIcon} alt="Nest JS" />NestJS</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <br />
-                            <tr>
-                                <td>
-                                    <h3>DevOps</h3>
-                                </td>
-                                <td>
-                                    <div className="skill-item">
-                                        <Progress
-                                            type="circle"
-                                            strokeColor={{
-                                                '0%': '#108ee9',
-                                                '100%': '#87d068',
-                                            }}
-                                            percent={90}
-                                        />
-                                        <p><img src={CentOSIcon} alt="CentOS" />CentOS</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="skill-item">
-                                        <Progress
-                                            type="circle"
-                                            strokeColor={{
-                                                '0%': '#108ee9',
-                                                '100%': '#87d068',
-                                            }}
-                                            percent={60}
-                                        />
-                                        <p><img src={DockerIcon} alt="Docker" />Docker</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="skill-item">
-                                        <Progress
-                                            type="circle"
-                                            strokeColor={{
-                                                '0%': '#108ee9',
-                                                '100%': '#87d068',
-                                            }}
-                                            percent={50}
-                                        />
-                                        <p style={{ fontSize: "14pt" }}><img src={AWSIcon} alt="AWS"/>Amazon AWS</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                        {
+                            width <= 1200 && (
+                                <div>
+                                    <h1>Programming</h1>
+                                    <table id="table-small">
+                                        <tr>
+                                            <td><img src={ReactIcon} alt="React" /> React</td>
+                                            <td>
+                                                <Progress percent={90} showInfo={true} type="line" strokeColor="#61DAFB" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src={ReactIcon} alt="React Native" /> React Native</td>
+                                            <td>
+                                                <Progress percent={90} showInfo={true} type="line" strokeColor="#61DAFB" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src={NestJSIcon} alt="React" />  Nest JS</td>
+                                            <td>
+                                                <Progress percent={70} showInfo={true} type="line" strokeColor="#E0234E" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br />
+                                    <h1>DevOps</h1>
+                                    <table id="table-small">
+                                        <tr>
+                                            <td><img src={CentOSIcon} alt="CentOS" /> CentOS</td>
+                                            <td>
+                                                <Progress percent={90} showInfo={true} type="line" strokeColor="#262577"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src={DockerIcon} alt="Docker" /> Docker</td>
+                                            <td>
+                                                <Progress percent={60} showInfo={true} type="line" strokeColor="#2496ED" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src={AWSIcon} alt="React" />  Amazon AWS</td>
+                                            <td>
+                                                <Progress percent={50} showInfo={true} type="line" strokeColor="#232F3E" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            )
+                        }
+
+                        {
+                            width > 1200 && (
+                                <table id="table-large">
+                                    <tr>
+                                        <td>
+                                            <h3>Programming</h3>
+                                        </td>
+                                        <td>
+                                            <div className="skill-item">
+                                                <Progress
+                                                    type="circle"
+                                                    strokeColor={{
+                                                        '0%': '#108ee9',
+                                                        '100%': '#87d068',
+                                                    }}
+                                                    percent={90}
+                                                />
+                                                <p><img src={ReactIcon} alt="React" />React</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skill-item">
+                                                <Progress
+                                                    type="circle"
+                                                    strokeColor={{
+                                                        '0%': '#108ee9',
+                                                        '100%': '#87d068',
+                                                    }}
+                                                    percent={90}
+                                                />
+                                                <p style={{ fontSize: "14pt" }}><img src={ReactIcon} alt="React Native" />React Native</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skill-item">
+                                                <Progress
+                                                    type="circle"
+                                                    strokeColor={{
+                                                        '0%': '#108ee9',
+                                                        '100%': '#87d068',
+                                                    }}
+                                                    percent={70}
+                                                />
+                                                <p><img src={NestJSIcon} alt="Nest JS" />NestJS</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <br />
+                                    <tr>
+                                        <td>
+                                            <h3>DevOps</h3>
+                                        </td>
+                                        <td>
+                                            <div className="skill-item">
+                                                <Progress
+                                                    type="circle"
+                                                    strokeColor={{
+                                                        '0%': '#108ee9',
+                                                        '100%': '#87d068',
+                                                    }}
+                                                    percent={90}
+                                                />
+                                                <p><img src={CentOSIcon} alt="CentOS" />CentOS</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skill-item">
+                                                <Progress
+                                                    type="circle"
+                                                    strokeColor={{
+                                                        '0%': '#108ee9',
+                                                        '100%': '#87d068',
+                                                    }}
+                                                    percent={60}
+                                                />
+                                                <p><img src={DockerIcon} alt="Docker" />Docker</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skill-item">
+                                                <Progress
+                                                    type="circle"
+                                                    strokeColor={{
+                                                        '0%': '#108ee9',
+                                                        '100%': '#87d068',
+                                                    }}
+                                                    percent={50}
+                                                />
+                                                <p style={{ fontSize: "14pt" }}><img src={AWSIcon} alt="AWS"/>Amazon AWS</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            )
+                        }
+                        
                     </div>
                 </Card>
             </div>

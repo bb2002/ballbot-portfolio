@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useEffect, useRef, useState} from "react"
+import React, {useEffect, useRef} from "react"
 import {Route, Switch} from "react-router-dom";
 import NavigationComp from "./components/navigation/Navigation.comp";
 import AboutMe from "./pages/AboutMe";
@@ -29,6 +29,7 @@ function App() {
     const history = useHistory()
     const section = document.getElementsByTagName("section")[0]
 
+    // eslint-disable-next-line
     const onScrolled = (e) => {
         if(e.timeStamp - beforeTimestamp.current > 1000) {
             const path = location.pathname
@@ -59,7 +60,7 @@ function App() {
                 section.removeEventListener("wheel", onScrolled)
             }
         }
-    }, [bottomView, topView, location.pathname])
+    }, [bottomView, topView, location.pathname, onScrolled, section])
 
     return (
         <div id="app">

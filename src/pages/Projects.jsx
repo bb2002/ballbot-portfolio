@@ -12,8 +12,6 @@ import 'swiper/swiper.min.css'
 import SwiperCore, { Navigation } from 'swiper';
 SwiperCore.use([Navigation]);
 
-
-
 const Projects = ({ match }) => {
     const { readProjects, projects } = useFirestore()
     const [currProject, setCurrProject] = useState(undefined)
@@ -48,6 +46,16 @@ const Projects = ({ match }) => {
         }
     }, [projects, match.params, setCurrProject])
 
+    let swiperStyle = {
+        width: width / 2,
+        height: 500
+    }
+    if(width <= 1400) {
+        swiperStyle = {
+            width: "100%",
+            height: 500
+        }
+    }
 
     return (
         <div className="project-container">
@@ -69,7 +77,7 @@ const Projects = ({ match }) => {
                 <div id="image-slider-container">
                     {
                         currProject ? (
-                            <Swiper navigation={true} className="mySwiper" style={{ width: width / 2, height: 500 }}>
+                            <Swiper navigation={true} className="mySwiper" style={swiperStyle}>
                                 {
                                     currProject.images.map(value => (
                                         <SwiperSlide>
@@ -84,15 +92,14 @@ const Projects = ({ match }) => {
                             <Spin size="large" />
                         )
                     }
-
+                    <div className="card-margin" />
+                    <div className="card-margin" />
                     <div id="intro-container">
-                        <div className="card-margin" />
-                        <div className="card-margin" />
+
                         <Card title="INTRODUCTION" id="intro-card" loading={currProject === undefined}>
                             <div dangerouslySetInnerHTML={{ __html: currProject ? currProject.introduction : "" }} id="intro-text"/>
                         </Card>
                     </div>
-
                 </div>
 
             </Card>

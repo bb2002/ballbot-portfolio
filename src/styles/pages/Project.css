@@ -6,6 +6,7 @@
 
 .describe-container {
     display: flex;
+    flex-direction: row;
 }
 
 .describe-container > div:first-child, .describe-container > div:last-child {
@@ -31,6 +32,18 @@
 #image-slider-container {
     display: flex;
     flex-direction: row;
+}
+
+@media screen and (max-width: 1400px) {
+    #image-slider-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .describe-container {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 #image-slider-container > #intro-container {

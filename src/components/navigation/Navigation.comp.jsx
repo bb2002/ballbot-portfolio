@@ -1,34 +1,54 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import "../../styles/navigation/Navigation.css"
 import "../../styles/common.css"
 import {useHistory, useLocation} from "react-router";
 import {Menu} from "antd";
-import {AndroidOutlined, IeOutlined, PhoneOutlined, ProjectOutlined, UserOutlined} from "@ant-design/icons";
+import {AndroidOutlined, IeOutlined, PhoneOutlined, UserOutlined} from "@ant-design/icons";
 import { Link } from "react-router-dom"
+import {useWindowSize} from "../../hooks/useWindowSize";
 
 const { SubMenu } = Menu;
 
 const NavigationComp = () => {
     const location = useLocation()
     const history = useHistory()
+    const [inlineMode, setInlineMode] = useState(false)
+    const { width } = useWindowSize()
+
     const category =    location.pathname.split("/")[1] ? location.pathname.split("/")[1] : "profile"
     const name =        location.pathname.split("/")[2] ? location.pathname.split("/")[2] : ""
-
-    useEffect(() => {
-
-    }, [location.path])
 
     const onMenuClicked = (keypath) => {
         history.push("/" + keypath.reverse().join("/"))
     }
 
+    useEffect(() => {
+        if(width <= 992) {
+            setInlineMode(true)
+        } else {
+            setInlineMode(false)
+        }
+    }, [width])
+
+    let style = {};
+    if(!inlineMode) style = { width: 300 }
+
     return (
-        <Menu className="navigation" mode="inline" selectedKeys={[name, category]}>
+        <Menu className="navigation" mode="inline" selectedKeys={[name, category]} inlineCollapsed={inlineMode} style={style}>
             <div id="logo">
-                <Link to="/">
-                    <h1>BALLBOT</h1>
-                    <h1>PORTFOLIO</h1>
-                </Link>
+                {
+                    inlineMode ? (
+                        <Link to="/">
+                            <h1>B</h1>
+                        </Link>
+                    ) : (
+                        <Link to="/">
+                            <h1>BALLBOT</h1>
+                            <h1>PORTFOLIO</h1>
+                        </Link>
+                    )
+                }
+
             </div>
 
             <Menu.Item key="profile" icon={<UserOutlined />} onClick={(value) => onMenuClicked(value.keyPath)}>
@@ -52,10 +72,15 @@ const NavigationComp = () => {
                 Contact Me
             </Menu.Item>
 
-            <footer>
-                <p>(c) 2015-2021 Ballbot</p>
-                <p>Designed by <a href="https://ant.design">Ant Design</a></p>
-            </footer>
+            {
+                !inlineMode && (
+                    <footer>
+                        <p>(c) 2015-2021 Ballbot</p>
+                        <p>Designed by <a href="https://ant.design">Ant Design</a></p>
+                    </footer>
+                )
+            }
+
         </Menu>
     );
 

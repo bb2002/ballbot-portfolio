@@ -9,10 +9,10 @@ section {
     flex: 1;
     overflow-y: auto;
     padding: 48px;
+    min-width: 576px;
 }
 
 #app > nav {
     height: 100%;
     box-sizing: border-box;
-    width: 300px;
 }

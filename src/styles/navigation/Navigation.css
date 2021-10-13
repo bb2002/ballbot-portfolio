@@ -18,7 +18,7 @@
     font-size: 18pt;
 }
 
-.navigation > footer {
+footer {
     position: fixed;
     bottom: 0;
     height: 48px;
