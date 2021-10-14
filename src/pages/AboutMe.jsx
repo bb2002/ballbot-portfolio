@@ -1,7 +1,7 @@
 import React from 'react';
 import "../styles/pages/AboutMe.css"
 import "../styles/common.css"
-import ProfileImage from "../assets/profile.png"
+import ItsMe from "../assets/itsme.jpg"
 import {Avatar, Card, Progress, Timeline} from 'antd';
 import ReactIcon from "../assets/react_icon.svg"
 import NestJSIcon from "../assets/nestjs_icon.svg"
@@ -20,7 +20,7 @@ const AboutMe = () => {
             <Card title="PROFILE">
                 <div id="profile">
                     <div>
-                        <Avatar src={ProfileImage} id="profile-img" alt="Profile" size={96}/>
+                        <Avatar src={ItsMe} id="profile-img" alt="Profile" size={96}/>
                         <p>김수빈</p>
                     </div>
                     <div>
